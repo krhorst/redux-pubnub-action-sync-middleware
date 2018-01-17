@@ -4,11 +4,10 @@ import { parse } from 'query-string';
 
 import actionSyncMiddleware from './actionSyncer';
 
-const channel = 'pubnub-action-syncer';
-
 const pubnubConnection = (options) => {
     const guid = Guid.raw();
     const subscribers = [];
+    const channel = options.channel || 'pubnub-action-syncer';
 
     // eslint-disable-next-line
     const pubnub = new PubNub(options);
