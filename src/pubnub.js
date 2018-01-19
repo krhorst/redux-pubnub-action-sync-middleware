@@ -75,6 +75,6 @@ export default function pubnubActionSyncer(inputOptions) {
 
     options.onActionRecived = subscribe;
     options.sendAction = publish;
-    
+
     return actionSyncMiddleware(options);
 }

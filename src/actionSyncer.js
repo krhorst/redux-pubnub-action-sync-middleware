@@ -57,7 +57,7 @@ export default function actionSyncMiddleware(inputOptions) {
     if (ignore) {
         return noActionMiddleware;
     }
-    
+
     const onActionRecivedWrapper = dispatch => onActionRecived(action => {
         if (receiverFilter(action)) {
             actionSet.add(action);
@@ -78,11 +78,11 @@ export default function actionSyncMiddleware(inputOptions) {
     };
 
     switch (mode) {
-    case 'sender':
-        return sender(actionSender);
-    case 'receiver':
-        return receiver(onActionRecivedWrapper);
-    default:
-        return both(onActionRecivedWrapper)(actionSender);
+        case 'sender':
+            return sender(actionSender);
+        case 'receiver':
+            return receiver(onActionRecivedWrapper);
+        default:
+            return both(onActionRecivedWrapper)(actionSender);
     }
 }
